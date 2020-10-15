@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript</title>
+        <meta charset="UTF-8">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <script>
+            let arr=["rock","paper","scissors"]
+            
+            function computePlay(){
+                let r= Math.floor(Math.random()*3);
+                return arr[r];
+            }
+
+            function play(comp,player){
+                if (comp==player){
+                    return "tie";
+                }else if(comp=="rock" && player=="paper"){
+                    return "win";
+                }else if(comp=="rock" && player=="scissors"){
+                    return "lose";
+                }else if(comp=="paper" && player=="rock"){
+                    return "lose";
+                }else if(comp=="paper" && player=="scissiors"){
+                    return "win"
+                }else if(comp=="scissors" && player=="rock"){
+                    return "win"
+                }else if(comp=="scissors" && player=="paper"){
+                    return "lose"
+                }else{
+                    return null
+                }
+            }
+
+            function rounds(myr){
+                let tie=[];
+                let win=[];
+                let lose=[];
+                for(i=1;i<=myr;i++){
+                    let user=prompt("enter rock,paper,scissors");
+                    let bot=computePlay();
+                    // console.log(bot,user);
+                    let count=play(bot,user);
+                    if (count=="tie"){
+                        tie.push("tie");
+                    }else if(count=="lose"){
+                        lose.push("lose");
+                    }else if(count=="win"){
+                        win.push("win");
+                    }else if (count==null){
+                        console.log("please enter correct value");
+                    }
+                }
+                if (lose.length>win.length){
+                    alert("you lose");
+                }else if(win.length>lose.length){
+                    alert("you win");
+                }else if (lose.length==win.length){
+                    alert("it's a tie");
+                }
+            }
+
+            let no_rounds=prompt("enter no of rounds");
+            rounds(no_rounds);
+
+        </script>
+    </body>
+</html>
