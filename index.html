@@ -9,9 +9,9 @@
     </head>
     <body>
         <script>
-            let arr=["rock","paper","scissors"]
-            
+                        
             function computePlay(){
+                let arr=["rock","paper","scissors"]
                 let r= Math.floor(Math.random()*3);
                 return arr[r];
             }
@@ -36,14 +36,14 @@
                 }
             }
 
-            function rounds(myr){
+            function rounds(n){  //n=no of rounds
                 let tie=[];
                 let win=[];
                 let lose=[];
-                for(i=1;i<=myr;i++){
+                for(i=1;i<=n;i++){
                     let user=prompt("enter rock,paper,scissors");
                     let bot=computePlay();
-                    // console.log(bot,user);
+                    console.log(bot,user);
                     let count=play(bot,user);
                     if (count=="tie"){
                         tie.push("tie");
@@ -56,11 +56,11 @@
                     }
                 }
                 if (lose.length>win.length){
-                    alert("you lose");
+                    alert("computer-score="+lose.length+"  "+"your-score="+win.length+"\n"+"you lose")
                 }else if(win.length>lose.length){
-                    alert("you win");
+                    alert("computer-score="+lose.length+"  "+"your-score="+win.length+"\n"+"you win")
                 }else if (lose.length==win.length){
-                    alert("it's a tie");
+                    alert("computer-score="+win.length+"  "+"your-score="+win.length+"\n"+"it's a tie")
                 }
             }
 
